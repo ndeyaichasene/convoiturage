@@ -1,0 +1,26 @@
+@startuml sequence_inscription
+actor Conducteur as C
+participant "IHM : inscription.html" as UI
+participant "SystemeAuthentification" as SYS
+participant "Utilisateur (BDD)" as BDD
+
+C -> UI : remplir formulaire (nom, prenom, email, tel, mdp)
+UI -> SYS : inscrire(donneesUtilisateur)
+SYS -> BDD : existeParEmail(email)
+activate BDD
+BDD --> SYS : booleen
+deactivate BDD
+
+alt email déjà utilisé
+    SYS --> UI : erreurEmailExistant
+    UI --> C : afficher message d'erreur
+else email disponible
+    SYS -> SYS : hasherMotDePasse()
+    SYS -> BDD : creerUtilisateur(donneesUtilisateur, role="Conducteur")
+    activate BDD
+    BDD --> SYS : utilisateurCree
+    deactivate BDD
+    SYS --> UI : compteCree(utilisateur)
+    UI --> C : redirection vers "Ajouter une voiture"
+end
+@enduml

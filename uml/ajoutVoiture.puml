@@ -1,0 +1,22 @@
+@startuml sequence_ajouter_voiture
+actor Conducteur as C
+participant "IHM : conducteur-voiture.html" as UI
+participant "Validator" as Vl
+participant "Modele" as BDD
+
+C -> UI : remplir formulaire (modele, immatriculation, couleur, places)
+UI -> Vl : ajouterVoiture(conducteurId, donneesVoiture)
+Vl -> Vl : validerChamps()
+
+alt champs invalides
+    Vl --> UI : erreurValidation
+    UI --> C : afficher message d'erreur
+else champs valides
+    Vl -> BDD : enregistrer(donneesVoiture, conducteurId)
+    activate BDD
+    BDD --> Vl : voitureCreee
+    deactivate BDD
+    Vl --> UI : confirmationAjout(voiture)
+    UI --> C : afficher voiture dans "Mes véhicules"
+end
+@enduml

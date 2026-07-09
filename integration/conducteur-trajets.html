@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes trajets — Yoon Covoiturage</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        asphalt: { DEFAULT:'#0F1519', 900:'#0B0F12', 800:'#141C21', 700:'#1B242A', 600:'#253038' },
+        route: { DEFAULT:'#FF6B35', 600:'#E85A28' },
+        gold: { DEFAULT:'#FFC94D' }, teal: { DEFAULT:'#35D6C0' }, danger: { DEFAULT:'#FF5C5C' },
+        ink: { DEFAULT:'#EDEFF1', muted:'#8B98A3' }
+      },
+      fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] }
+    } }
+  }
+</script>
+<style>
+  body{ background:#0F1519; }
+</style>
+</head>
+<body class="font-body text-ink min-h-screen">
+
+<header class="sticky top-0 z-10 border-b border-asphalt-600 bg-asphalt-900/95 backdrop-blur">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-route flex items-center justify-center font-display font-bold text-asphalt-900">Y</div>
+      <span class="font-display text-xl font-bold tracking-tight">Yoon</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-ink-muted hidden sm:inline">Aïcha Sène</span>
+      <a href="connexion.html" class="text-sm text-danger hover:text-white transition">Déconnexion</a>
+    </div>
+  </div>
+  <div class="route-divider"></div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 py-8">
+  <nav class="flex items-center gap-6 mb-8 border-b border-asphalt-600 overflow-x-auto">
+    <a href="conducteur-voiture.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">1. Ma voiture</a>
+    <a href="conducteur-trajet.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">2. Créer trajet</a>
+    <a href="conducteur-trajets.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-route text-route">3. Mes trajets</a>
+  </nav>
+
+  <h1 class="font-display text-2xl font-bold mb-1">Mes trajets</h1>
+  <p class="text-ink-muted mb-6">Démarre puis termine un trajet le jour J.</p>
+
+  <div class="space-y-4">
+
+    <!-- Trajet planifié -->
+    <div class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <div>
+          <p class="font-display text-lg font-bold">Dakar <span class="text-route">→</span> Thiès</p>
+          <p class="text-xs text-ink-muted font-mono">09/07/2026 · 08:30 · Toyota Corolla · DK-2024-AB</p>
+        </div>
+        <span class="text-xs font-mono uppercase tracking-wide text-gold">● Planifié</span>
+      </div>
+      <div class="flex items-center justify-between text-sm mb-4">
+        <span class="text-ink-muted">4/4 places restantes</span>
+        <span class="font-mono text-gold">2 500 FCFA / place</span>
+      </div>
+      <a href="#trajet-encours" class="block w-full text-center bg-route hover:bg-route-600 transition text-asphalt-900 font-bold rounded-lg py-2 text-sm">Démarrer le trajet</a>
+    </div>
+
+    <!-- Trajet en cours -->
+    <div id="trajet-encours" class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-5 scroll-mt-24">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <div>
+          <p class="font-display text-lg font-bold">Dakar <span class="text-route">→</span> Mbour</p>
+          <p class="text-xs text-ink-muted font-mono">09/07/2026 · 07:00 · Toyota Corolla · DK-2024-AB</p>
+        </div>
+        <span class="text-xs font-mono uppercase tracking-wide text-teal">● En cours</span>
+      </div>
+      <div class="flex items-center justify-between text-sm mb-4">
+        <span class="text-ink-muted">1/4 place restante</span>
+        <span class="font-mono text-gold">3 000 FCFA / place</span>
+      </div>
+      <a href="#trajet-termine" class="block w-full text-center bg-teal hover:opacity-90 transition text-asphalt-900 font-bold rounded-lg py-2 text-sm">Terminer le trajet</a>
+    </div>
+
+    <!-- Trajet terminé -->
+    <div id="trajet-termine" class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-5 scroll-mt-24">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <div>
+          <p class="font-display text-lg font-bold">Dakar <span class="text-route">→</span> Saly</p>
+          <p class="text-xs text-ink-muted font-mono">08/07/2026 · 09:15 · Toyota Corolla · DK-2024-AB</p>
+        </div>
+        <span class="text-xs font-mono uppercase tracking-wide text-ink-muted">● Terminé</span>
+      </div>
+      <div class="flex items-center justify-between text-sm mb-4">
+        <span class="text-ink-muted">0/4 place restante</span>
+        <span class="font-mono text-gold">2 000 FCFA / place</span>
+      </div>
+      <span class="block w-full text-center text-sm text-ink-muted py-2">Trajet clôturé — paiement versé au conducteur</span>
+    </div>
+
+  </div>
+
+  <p class="text-xs text-ink-muted mt-8 border-t border-asphalt-600 pt-4">
+    Note : cette page statique montre les 3 états possibles d'un trajet (planifié / en cours / terminé) à titre de maquette. Dans la version connectée à une base de données, les boutons "Démarrer" et "Terminer" mettront réellement à jour le statut du même trajet.
+  </p>
+</main>
+
+</body>
+</html>

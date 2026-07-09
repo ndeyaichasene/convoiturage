@@ -1,0 +1,27 @@
+@startuml sequence_creer_trajet
+actor Conducteur as C
+participant "IHM : conducteur-trajet.html" as UI
+participant "SystemeGestion" as SYS
+participant "MOdeleVoiture" as V
+participant "ModeleTrajet" as T
+
+C -> UI : choisir véhicule + itinéraire + date/heure + tarif
+UI -> SYS : creerTrajet(conducteurId, donneesTrajet)
+SYS -> V : verifierAppartient(conducteurId, voitureId)
+activate V
+V --> SYS : booleen
+deactivate V
+
+alt voiture non enregistrée pour ce conducteur
+    SYS --> UI : erreurVoitureInvalide
+    UI --> C : afficher message d'erreur
+else voiture valide
+    SYS -> SYS : calculerPlacesDisponibles(voiture.nbrePlaces)
+    SYS -> T : creer(donneesTrajet, status="planifié")
+    activate T
+    T --> SYS : trajetCree
+    deactivate T
+    SYS --> UI : confirmationPublication(trajet)
+    UI --> C : redirection vers "Mes trajets"
+end
+@enduml

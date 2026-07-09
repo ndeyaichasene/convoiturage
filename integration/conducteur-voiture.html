@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma voiture — Yoon Covoiturage</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        asphalt: { DEFAULT:'#0F1519', 900:'#0B0F12', 800:'#141C21', 700:'#1B242A', 600:'#253038' },
+        route: { DEFAULT:'#FF6B35', 600:'#E85A28' },
+        gold: { DEFAULT:'#FFC94D' }, teal: { DEFAULT:'#35D6C0' }, danger: { DEFAULT:'#FF5C5C' },
+        ink: { DEFAULT:'#EDEFF1', muted:'#8B98A3' }
+      },
+      fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] }
+    } }
+  }
+</script>
+<style>
+  body{ background:#0F1519; }
+</style>
+</head>
+<body class="font-body text-ink min-h-screen">
+
+<header class="sticky top-0 z-10 border-b border-asphalt-600 bg-asphalt-900/95 backdrop-blur">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-route flex items-center justify-center font-display font-bold text-asphalt-900">Y</div>
+      <span class="font-display text-xl font-bold tracking-tight">Yoon</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-ink-muted hidden sm:inline">Aïcha Sène</span>
+      <a href="connexion.html" class="text-sm text-danger hover:text-white transition">Déconnexion</a>
+    </div>
+  </div>
+  <div class="route-divider"></div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 py-8">
+  <nav class="flex items-center gap-6 mb-8 border-b border-asphalt-600 overflow-x-auto">
+    <a href="conducteur-voiture.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-route text-route">1. Ma voiture</a>
+    <a href="conducteur-trajet.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">2. Créer trajet</a>
+    <a href="conducteur-trajets.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">3. Mes trajets</a>
+  </nav>
+
+  <h1 class="font-display text-2xl font-bold mb-1">Ajoute ta voiture</h1>
+  <p class="text-ink-muted mb-6">Une voiture enregistrée est nécessaire pour proposer un trajet.</p>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <form class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-6 space-y-4">
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Marque / modèle</label>
+        <input type="text" placeholder="Toyota Corolla" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Immatriculation</label>
+        <input type="text" placeholder="DK-2024-AB" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm font-mono">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-sm text-ink-muted mb-1 block">Couleur</label>
+          <input type="text" placeholder="Gris" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+        </div>
+        <div>
+          <label class="text-sm text-ink-muted mb-1 block">Places dispo.</label>
+          <input type="number" min="1" max="8" value="4" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+        </div>
+      </div>
+      <a href="conducteur-trajet.html" class="block w-full text-center bg-route hover:bg-route-600 transition text-asphalt-900 font-bold rounded-lg py-2.5 text-sm">Enregistrer la voiture</a>
+    </form>
+
+    <div>
+      <p class="text-sm text-ink-muted uppercase tracking-wide font-mono mb-3">Mes véhicules</p>
+      <div class="bg-asphalt-800 border border-asphalt-600 rounded-xl p-4 flex items-center justify-between">
+        <div>
+          <p class="font-semibold">Toyota Corolla</p>
+          <p class="text-xs text-ink-muted font-mono">DK-2024-AB · Gris · 4 places</p>
+        </div>
+        <span class="text-teal text-xs font-mono">actif</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

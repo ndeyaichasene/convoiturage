@@ -1,0 +1,42 @@
+@startuml sequence_reserver_place
+actor Passager as P
+participant "IHM : Interface" as UI
+participant "Controller" as SYS
+participant "Service" as T
+participant "SystemeBancaire" as SB
+
+P -> UI : sélectionner trajet + nombre de places
+UI -> SYS : demanderReservation(trajetId, nbPlaces)
+SYS -> T : verifierDisponibilite(nbPlaces)
+activate T
+T -> T : calculerPlacesRestantes()
+T --> SYS : placesRestantes
+deactivate T
+
+alt places suffisantes
+    SYS -> SB : traiterPaiement(montant)
+    activate SB
+
+    alt paiement accepté
+        SB --> SYS : confirmationPaiement
+        deactivate SB
+        SYS -> T : reserverPlaces(nbPlaces)
+        activate T
+        T -> T : decrementerPlacesDisponibles()
+        T --> SYS : ok
+        deactivate T
+        SYS --> UI : confirmationReservation
+        UI --> P : afficher confirmation
+
+    else paiement refusé
+        SB --> SYS : echecPaiement
+        deactivate SB
+        SYS --> UI : erreurPaiement
+        UI --> P : afficher message d'erreur
+    end
+
+else places insuffisantes
+    SYS --> UI : erreurPlacesInsuffisantes
+    UI --> P : afficher message d'erreur
+end
+@enduml

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechercher un trajet — Yoon Covoiturage</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        asphalt: { DEFAULT:'#0F1519', 900:'#0B0F12', 800:'#141C21', 700:'#1B242A', 600:'#253038' },
+        route: { DEFAULT:'#FF6B35', 600:'#E85A28' },
+        gold: { DEFAULT:'#FFC94D' }, teal: { DEFAULT:'#35D6C0' }, danger: { DEFAULT:'#FF5C5C' },
+        ink: { DEFAULT:'#EDEFF1', muted:'#8B98A3' }
+      },
+      fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] }
+    } }
+  }
+</script>
+<style>
+  body{ background:#0F1519; }
+  .route-divider{ height:2px; background-image: linear-gradient(90deg, #FF6B35 0 10px, transparent 10px 20px); background-size: 20px 2px; }
+</style>
+</head>
+<body class="font-body text-ink min-h-screen">
+
+<header class="border-b border-asphalt-600 bg-asphalt-900/95">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-route flex items-center justify-center font-display font-bold text-asphalt-900">Y</div>
+      <span class="font-display text-xl font-bold tracking-tight">Yoon</span>
+      <span class="hidden sm:inline text-ink-muted text-sm ml-1">— covoiturage</span>
+    </div>
+    <a href="connexion.html" class="text-sm text-ink-muted hover:text-ink transition">Espace conducteur →</a>
+  </div>
+  <div class="route-divider"></div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 py-8">
+  <p class="text-route font-mono text-xs tracking-widest uppercase mb-2">Aucune connexion requise</p>
+  <h2 class="font-display text-2xl font-bold mb-1">Trouve ton trajet</h2>
+  <p class="text-ink-muted mb-6">Cherche par ville de départ, d'arrivée et date.</p>
+
+  <form class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-5 grid md:grid-cols-4 gap-3">
+    <input type="text" placeholder="Départ (ex. Dakar)" class="bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    <input type="text" placeholder="Arrivée (ex. Thiès)" class="bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    <input type="date" class="bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    <a href="passager-resultats.html" class="block text-center bg-route hover:bg-route-600 transition text-asphalt-900 font-bold rounded-lg py-2.5 text-sm">Rechercher</a>
+  </form>
+</main>
+
+</body>
+</html>

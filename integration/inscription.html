@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription — Yoon Covoiturage</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        asphalt: { DEFAULT:'#0F1519', 900:'#0B0F12', 800:'#141C21', 700:'#1B242A', 600:'#253038' },
+        route: { DEFAULT:'#FF6B35', 600:'#E85A28' },
+        gold: { DEFAULT:'#FFC94D' }, teal: { DEFAULT:'#35D6C0' }, danger: { DEFAULT:'#FF5C5C' },
+        ink: { DEFAULT:'#EDEFF1', muted:'#8B98A3' }
+      },
+      fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] }
+    } }
+  }
+</script>
+<style>
+  body{ background:#0F1519; }
+</style>
+</head>
+<body class="font-body text-ink min-h-screen">
+
+<header class="border-b border-asphalt-600 bg-asphalt-900/95">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="passager-recherche.html" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-route flex items-center justify-center font-display font-bold text-asphalt-900">Y</div>
+      <span class="font-display text-xl font-bold tracking-tight">Yoon</span>
+      <span class="hidden sm:inline text-ink-muted text-sm ml-1">— covoiturage</span>
+    </a>
+    <a href="passager-recherche.html" class="text-sm text-ink-muted hover:text-ink transition">Je suis passager · rechercher un trajet →</a>
+  </div>
+  <div class="route-divider"></div>
+</header>
+
+<main class="max-w-md mx-auto px-5 py-12">
+  <p class="text-route font-mono text-xs tracking-widest uppercase mb-2">Espace conducteur</p>
+  <h1 class="font-display text-3xl font-bold mb-1">Deviens conducteur.</h1>
+  <p class="text-ink-muted mb-6">Crée ton compte pour proposer tes trajets.</p>
+
+  <div class="flex gap-1 bg-asphalt-800 rounded-full p-1 border border-asphalt-600 mb-6 w-fit">
+    <a href="connexion.html" class="px-5 py-1.5 rounded-full text-sm font-semibold text-ink-muted">Connexion</a>
+    <a href="inscription.html" class="px-5 py-1.5 rounded-full text-sm font-semibold bg-route text-asphalt-900">Inscription</a>
+  </div>
+
+  <form class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-6 space-y-4">
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Prénom</label>
+        <input type="text" placeholder="Aïcha" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Nom</label>
+        <input type="text" placeholder="Sène" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+    </div>
+    <div>
+      <label class="text-sm text-ink-muted mb-1 block">Adresse mail</label>
+      <input type="email" placeholder="toi@exemple.com" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    </div>
+    <div>
+      <label class="text-sm text-ink-muted mb-1 block">Téléphone</label>
+      <input type="tel" placeholder="+221 77 547 90 02" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    </div>
+    <div>
+      <label class="text-sm text-ink-muted mb-1 block">Mot de passe</label>
+      <input type="password" placeholder="******" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+    </div>
+    <a href="conducteur-voiture.html" class="block w-full text-center bg-route hover:bg-route-600 transition text-asphalt-900 font-bold rounded-lg py-2.5 text-sm">Créer mon compte</a>
+    <p class="text-center text-sm text-ink-muted">Déjà inscrit ? <a href="connexion.html" class="text-route hover:underline">Se connecter</a></p>
+  </form>
+</main>
+
+</body>
+</html>

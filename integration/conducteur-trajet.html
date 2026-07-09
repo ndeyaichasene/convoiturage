@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer un trajet — Yoon Covoiturage</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        asphalt: { DEFAULT:'#0F1519', 900:'#0B0F12', 800:'#141C21', 700:'#1B242A', 600:'#253038' },
+        route: { DEFAULT:'#FF6B35', 600:'#E85A28' },
+        gold: { DEFAULT:'#FFC94D' }, teal: { DEFAULT:'#35D6C0' }, danger: { DEFAULT:'#FF5C5C' },
+        ink: { DEFAULT:'#EDEFF1', muted:'#8B98A3' }
+      },
+      fontFamily: { display:['"Space Grotesk"','sans-serif'], body:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] }
+    } }
+  }
+</script>
+<style>
+  body{ background:#0F1519; }
+</style>
+</head>
+<body class="font-body text-ink min-h-screen">
+
+<header class="sticky top-0 z-10 border-b border-asphalt-600 bg-asphalt-900/95 backdrop-blur">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-route flex items-center justify-center font-display font-bold text-asphalt-900">Y</div>
+      <span class="font-display text-xl font-bold tracking-tight">Yoon</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-ink-muted hidden sm:inline">Mamadou Diop</span>
+      <a href="connexion.html" class="text-sm text-danger hover:text-white transition">Déconnexion</a>
+    </div>
+  </div>
+  <div class="route-divider"></div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 py-8">
+  <nav class="flex items-center gap-6 mb-8 border-b border-asphalt-600 overflow-x-auto">
+    <a href="conducteur-voiture.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">1. Ma voiture</a>
+    <a href="conducteur-trajet.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-route text-route">2. Créer trajet</a>
+    <a href="conducteur-trajets.html" class="pb-3 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-ink-muted">3. Mes trajets</a>
+  </nav>
+
+  <h1 class="font-display text-2xl font-bold mb-1">Publie un trajet</h1>
+  <p class="text-ink-muted mb-6">Renseigne l'itinéraire, l'horaire et le tarif par place.</p>
+
+  <form class="bg-asphalt-800 border border-asphalt-600 rounded-2xl p-6 space-y-4 max-w-xl">
+    <div>
+      <label class="text-sm text-ink-muted mb-1 block">Véhicule</label>
+      <select class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+        <option>Toyota Corolla · DK-2024-AB (4 places)</option>
+      </select>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Ville de départ</label>
+        <input type="text" placeholder="Dakar" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Ville d'arrivée</label>
+        <input type="text" placeholder="Thiès" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Date</label>
+        <input type="date" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+      <div>
+        <label class="text-sm text-ink-muted mb-1 block">Heure</label>
+        <input type="time" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm">
+      </div>
+    </div>
+    <div>
+      <label class="text-sm text-ink-muted mb-1 block">Tarif par place (FCFA)</label>
+      <input type="number" min="0" step="100" placeholder="2500" class="w-full bg-asphalt-700 border border-asphalt-600 rounded-lg px-4 py-2.5 text-sm font-mono">
+    </div>
+    <a href="conducteur-trajets.html" class="block w-full text-center bg-route hover:bg-route-600 transition text-asphalt-900 font-bold rounded-lg py-2.5 text-sm">Publier le trajet</a>
+  </form>
+</main>
+
+</body>
+</html>
